@@ -1,0 +1,15 @@
+# Step 1: Use a base image with JDK
+FROM openjdk:17-jdk-slim
+
+# Step 2: Set the working directory in the container
+WORKDIR /app
+
+# Step 3: Copy the JAR file from the host to the container
+# Assuming the JAR is in the current directory
+COPY target/my-application.jar my-application.jar
+
+# Step 4: Expose the port the app will run on (optional, based on your app)
+EXPOSE 8080
+
+# Step 5: Define the command to run the Java application
+CMD ["java", "-jar", "my-application.jar"]
